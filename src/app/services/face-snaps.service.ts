@@ -10,6 +10,7 @@ export class FaceSnapsService {
 
   faceSnaps: FaceSnap[] = [
     {
+      id: 1,
       title: 'Face Snap', 
       description: 'This is a dogshit.', 
       imageUrl: 'https://i.imgur.com/qkdpN.png', 
@@ -19,6 +20,7 @@ export class FaceSnapsService {
       location: 'Paris'
     },
     {
+      id: 2,
       title: 'Face Snap 2',
       description: 'This is the same dogshit.',
       imageUrl: 'https://i.imgur.com/qkdpN.png',
@@ -28,6 +30,7 @@ export class FaceSnapsService {
       location: 'Montpellier'
     },
     {
+      id: 3,
       title: 'Face Snap 3',
       description: 'Face Snap is just a dog on a bridge.',
       imageUrl: 'https://i.imgur.com/qkdpN.png',
@@ -36,4 +39,29 @@ export class FaceSnapsService {
       isLiked: false
     }
   ];
+
+  getAllFaceSnaps() : FaceSnap[] {
+    return this.faceSnaps;
+  }
+
+  likeFaceSnapById(faceSnapId: number) : void {
+    const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+    if(faceSnap) {
+      faceSnap.snaps++;
+    } else {
+      throw new Error('FaceSnap not found');
+    }
+  }
+
+  unLikeFaceSnapById(faceSnapId: number) : void {
+    const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+    if(faceSnap) {
+      faceSnap.snaps--;
+    } else {
+      throw new Error('FaceSnap not found');
+    }
+  }
+
+
+
 }
