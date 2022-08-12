@@ -21,13 +21,13 @@ export class FaceSnapComponent implements OnInit {
 
   onLike() {
     if (this.buttonText === 'Like') {
-      this.faceSnapsService.likeFaceSnapById(this.faceSnap.id);
+      this.faceSnapsService.likeFaceSnapById(this.faceSnap.id, 'like');
       this.buttonText = 'Liked';
       this.faceSnap.isLiked = true;
       console.log(this.faceSnap.title + ' - ' + this.faceSnap.isLiked);
       
     } else {
-      this.faceSnapsService.unLikeFaceSnapById(this.faceSnap.id);
+      this.faceSnapsService.likeFaceSnapById(this.faceSnap.id, 'unlike');
       this.buttonText = 'Like';
       this.faceSnap.isLiked = false;
       console.log(this.faceSnap.title + ' - ' + this.faceSnap.isLiked);

@@ -44,23 +44,37 @@ export class FaceSnapsService {
     return this.faceSnaps;
   }
 
-  likeFaceSnapById(faceSnapId: number) : void {
+  getFaceSnapById(faceSnapId: number) : FaceSnap {
     const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
-    if(faceSnap) {
-      faceSnap.snaps++;
-    } else {
+    if(!faceSnap) {
       throw new Error('FaceSnap not found');
+    } else {
+      return faceSnap;
     }
   }
 
-  unLikeFaceSnapById(faceSnapId: number) : void {
-    const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
-    if(faceSnap) {
-      faceSnap.snaps--;
-    } else {
-      throw new Error('FaceSnap not found');
-    }
+  likeFaceSnapById(faceSnapId: number, likeType: 'like' | 'unlike'): void {
+    const faceSnap = this.getFaceSnapById(faceSnapId);
+    likeType === 'like' ? faceSnap.snaps++ : faceSnap.snaps--;
   }
+
+  // likeFaceSnapById(faceSnapId: number) : void { // methode qui se repete dans le code alors on retire
+  //   const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+  //   if(faceSnap) {
+  //     faceSnap.snaps++;
+  //   } else {
+  //     throw new Error('FaceSnap not found');
+  //   }
+  // }
+
+  // unLikeFaceSnapById(faceSnapId: number) : void { // methode qui se repete dans le code alors on retire
+  //   const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
+  //   if(faceSnap) {
+  //     faceSnap.snaps--;
+  //   } else {
+  //     throw new Error('FaceSnap not found');
+  //   }
+  // }
 
 
 
