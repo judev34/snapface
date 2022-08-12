@@ -1,6 +1,40 @@
 .face-snap-card {
-    width: 35%;
+    box-sizing: border-box;
+    margin: 20px auto;
+    padding: 10px 30px;
+    width: 50%;
+    box-shadow: lightgray 4px 4px 20px;
     img {
         width: 100%;
     }
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+
+    button {
+        background-color: white;
+        box-sizing: border-box;
+        padding: 5px 10px;
+        border: none;
+        box-shadow: lightgray 3px 3px 7px;
+        margin-right: 20px;
+        outline: none;
+        font-size: 1.0em;
+        font-weight: 500;
+        &:active {
+            transform: translate(1px, 1px);
+            box-shadow: lightgray 0 0 5px;
+        }
+    }
+
+}
+
+.snapped {
+    background-color: wheat;
 }

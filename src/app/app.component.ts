@@ -18,19 +18,19 @@ export class AppComponent implements OnInit {
     this.faceSnaps = [
       {
         title: 'Face Snap', 
-        description: 'Face Snap is a web application that allows users to take pictures of their face and upload them to a server. The pictures are then analyzed and the user is given a score based on the amount of facial features they have.', 
+        description: 'This is a dogshit.', 
         imageUrl: 'https://i.imgur.com/qkdpN.png', 
         createdDate: new Date(), 
-        snaps: 0,
+        snaps: 150,
         isLiked: false,
         location: 'Paris'
       },
       {
         title: 'Face Snap 2',
-        description: 'Face Snap is a web basic app.',
+        description: 'This is the same dogshit.',
         imageUrl: 'https://i.imgur.com/qkdpN.png',
         createdDate: new Date(),
-        snaps: 0,
+        snaps: 200,
         isLiked: false,
         location: 'Montpellier'
       },
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
         description: 'Face Snap is just a dog on a bridge.',
         imageUrl: 'https://i.imgur.com/qkdpN.png',
         createdDate: new Date(),
-        snaps: 0,
+        snaps: 90,
         isLiked: false
       }
     ];

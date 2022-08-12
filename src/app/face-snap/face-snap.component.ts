@@ -23,10 +23,13 @@ export class FaceSnapComponent implements OnInit {
       this.faceSnap.snaps++;
       this.buttonText = 'Liked';
       this.faceSnap.isLiked = true;
+      console.log(this.faceSnap.title + ' - ' + this.faceSnap.isLiked);
+      
     } else {
       this.faceSnap.snaps--;
       this.buttonText = 'Like';
       this.faceSnap.isLiked = false;
+      console.log(this.faceSnap.title + ' - ' + this.faceSnap.isLiked);
     }
   }
 }

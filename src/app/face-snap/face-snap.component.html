@@ -1,13 +1,13 @@
 
-<div class="face-snap-card">
-    <h2>{{ faceSnap.title }}</h2>
-    <p>Mise en ligne le {{ faceSnap.createdDate }}</p>
+<div class="face-snap-card" [ngClass]="{snapped: faceSnap.isLiked === true}">
+    <h2>{{ faceSnap.title | uppercase }}</h2>
+    <p>Mise en ligne le {{ faceSnap.createdDate | date: 'shortDate' }}</p>
     <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
     <p>{{ faceSnap.description }}</p>
     <p *ngIf="faceSnap.location === 'Paris'">Photo prise à {{ faceSnap.location }}</p>
     <p>
         <button (click)="onLike()">{{ buttonText }}</button>
-        🤌 {{ faceSnap.snaps }}
+        <span [ngStyle]="{ color: 'rgb(0,' + faceSnap.snaps +',0)' }">🤌 {{ faceSnap.snaps }}</span>
     </p>
 </div>
 
