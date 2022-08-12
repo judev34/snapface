@@ -1,0 +1,20 @@
+.landing-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    img {
+        display: block;
+        width: 50%;
+        border-radius: 25%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+.landing-links {
+    width: 100%;
+    text-align: center;
+}
