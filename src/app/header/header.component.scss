@@ -4,3 +4,15 @@ header {
     margin-bottom: 20px;
     padding: 10px;
 }
+
+nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    &:hover {
+        color: white;
+    }
+    &.active {
+        color: wheat;
+    }
+}

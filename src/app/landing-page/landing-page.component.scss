@@ -6,13 +6,19 @@
     transform: translate(-50%, -50%);
     img {
         display: block;
-        width: 50%;
+        width: 200px;
+        height: auto;
         border-radius: 25%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
     }
 }
 
+button {
+    margin-right: 0;
+    font-size: 1.2rem;
+}
 
 .landing-links {
     width: 100%;
