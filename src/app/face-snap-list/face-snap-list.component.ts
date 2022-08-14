@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, tap } from 'rxjs';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
 
@@ -15,6 +16,9 @@ export class FaceSnapListComponent implements OnInit {
 
   ngOnInit(): void {
     this.faceSnaps = this.faceSnapsService.getAllFaceSnaps();
+    // interval(1000).pipe(
+      // tap(console.log)).subscribe();
   }
+
 
 }

@@ -12,14 +12,14 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.interval$ = interval(1000).pipe(
-      filter(value => value % 3 === 0),
-      map(value => value % 2 === 0 ?  
-        `${value}' - Even` : 
-        `${value}' - Odd`
-        ),
-        tap(text => this.logger(text)),
-    );
+    // this.interval$ = interval(1000).pipe(
+    //   filter(value => value % 3 === 0),
+    //   map(value => value % 2 === 0 ?  
+    //     `${value}' - Even` : 
+    //     `${value}' - Odd`
+    //     ),
+    //     tap(text => this.logger(text)),
+    // );
   }
 
   logger(text: string) {
