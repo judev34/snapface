@@ -31,14 +31,21 @@ export class FaceSnapsService {
     );
   }
 
-  addFaceSnap(formValue: {title: string, description: string, imageUrl: string, location: string}) : void {
-    // const newFaceSnap: FaceSnap = {
-    //   ...formValue,
-    //   snaps: 0,
-    //   createdDate: new Date(),
-    //   id: this.faceSnaps[this.faceSnaps.length - 1].id + 1,
-    // };
-    // this.faceSnaps.push(newFaceSnap);
+  addFaceSnap(formValue: {title: string, description: string, imageUrl: string, location: string}) : Observable<FaceSnap> {
+    return this.getAllFaceSnaps().pipe(
+      map(faceSnaps => [...faceSnaps].sort((a, b) => a.id - b.id)),
+      map(sortedFaceSnaps => sortedFaceSnaps[sortedFaceSnaps.length - 1]),
+      map(previousFaceSnap => ({
+        ...formValue,
+        snaps: 0,
+        createdDate: new Date(),
+        id: previousFaceSnap.id + 1,
+      })),
+      switchMap(newFaceSnap => this.http.post<FaceSnap>(
+        'http://localhost:3000/facesnaps',
+        newFaceSnap)
+      )
+    );
   }
 
 }
