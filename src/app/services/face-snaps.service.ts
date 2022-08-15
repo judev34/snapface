@@ -16,7 +16,6 @@ export class FaceSnapsService {
       imageUrl: 'https://i.imgur.com/qkdpN.png', 
       createdDate: new Date(), 
       snaps: 150,
-      isLiked: false,
       location: 'Paris'
     },
     {
@@ -26,7 +25,6 @@ export class FaceSnapsService {
       imageUrl: 'https://i.imgur.com/qkdpN.png',
       createdDate: new Date(),
       snaps: 200,
-      isLiked: false,
       location: 'Montpellier'
     },
     {
@@ -36,7 +34,6 @@ export class FaceSnapsService {
       imageUrl: 'https://i.imgur.com/qkdpN.png',
       createdDate: new Date(),
       snaps: 90,
-      isLiked: false
     }
   ];
 
@@ -58,6 +55,18 @@ export class FaceSnapsService {
     likeType === 'like' ? faceSnap.snaps++ : faceSnap.snaps--;
   }
 
+  addFaceSnap(formValue: {title: string, description: string, imageUrl: string, location: string}) : void {
+    const newFaceSnap: FaceSnap = {
+      ...formValue,
+      snaps: 0,
+      createdDate: new Date(),
+      id: this.faceSnaps[this.faceSnaps.length - 1].id + 1,
+    };
+    this.faceSnaps.push(newFaceSnap);
+  }
+
+}
+
   // likeFaceSnapById(faceSnapId: number) : void { // methode qui se repete dans le code alors on retire
   //   const faceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
   //   if(faceSnap) {
@@ -76,6 +85,3 @@ export class FaceSnapsService {
   //   }
   // }
 
-
-
-}
