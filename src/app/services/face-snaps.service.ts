@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { FaceSnap } from '../models/face-snap.model';
 
 @Injectable({
@@ -6,39 +8,42 @@ import { FaceSnap } from '../models/face-snap.model';
 })
 export class FaceSnapsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   faceSnaps: FaceSnap[] = [
-    {
-      id: 1,
-      title: 'Face Snap', 
-      description: 'This is a dogshit.', 
-      imageUrl: 'https://i.imgur.com/qkdpN.png', 
-      createdDate: new Date(), 
-      snaps: 150,
-      location: 'Paris'
-    },
-    {
-      id: 2,
-      title: 'Face Snap 2',
-      description: 'This is the same dogshit.',
-      imageUrl: 'https://i.imgur.com/qkdpN.png',
-      createdDate: new Date(),
-      snaps: 200,
-      location: 'Montpellier'
-    },
-    {
-      id: 3,
-      title: 'Face Snap 3',
-      description: 'Face Snap is just a dog on a bridge.',
-      imageUrl: 'https://i.imgur.com/qkdpN.png',
-      createdDate: new Date(),
-      snaps: 90,
-    }
+  //   {
+  //     id: 1,
+  //     title: 'Face Snap', 
+  //     description: 'This is a dogshit.', 
+  //     imageUrl: 'https://i.imgur.com/qkdpN.png', 
+  //     createdDate: new Date(), 
+  //     snaps: 150,
+  //     location: 'Paris'
+  //   },
+  //   {
+  //     id: 2,
+  //     title: 'Face Snap 2',
+  //     description: 'This is the same dogshit.',
+  //     imageUrl: 'https://i.imgur.com/qkdpN.png',
+  //     createdDate: new Date(),
+  //     snaps: 200,
+  //     location: 'Montpellier'
+  //   },
+  //   {
+  //     id: 3,
+  //     title: 'Face Snap 3',
+  //     description: 'Face Snap is just a dog on a bridge.',
+  //     imageUrl: 'https://i.imgur.com/qkdpN.png',
+  //     createdDate: new Date(),
+  //     snaps: 90,
+  //   }
   ];
 
-  getAllFaceSnaps() : FaceSnap[] {
-    return this.faceSnaps;
+  // getAllFaceSnaps() : FaceSnap[] {
+  //   return this.faceSnaps;
+  // }
+  getAllFaceSnaps() : Observable<FaceSnap[]> {
+    return this.http.get<FaceSnap[]>('http://localhost:3000/facesnaps');
   }
 
   getFaceSnapById(faceSnapId: number) : FaceSnap {
