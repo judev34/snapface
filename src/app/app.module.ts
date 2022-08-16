@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { FaceSnapsModule } from './face-snaps/face-snaps.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
@@ -18,7 +17,6 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AppRoutingModule,
     FormsModule,
     CoreModule,
-    FaceSnapsModule,
   ],
   bootstrap: [AppComponent]
 })
