@@ -20,13 +20,4 @@ export class LandingPageComponent implements OnInit {
   onContinue(): void {
     this.router.navigateByUrl('facesnaps');
   }
-
-  // onSubmitForm(): void { methode classique
-  //   console.log(this.userEmail);
-  // }
-
-  // onSubmitForm(form: NgForm): void { // methode angular
-  //   console.log(form.value);
-  // }
-
 }
