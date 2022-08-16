@@ -10,7 +10,6 @@ import { LoginComponent } from "./components/login/login.component";
     imports: [
         CommonModule,
         AuthRoutingModule
-
     ],
     exports: [
         LoginComponent
